@@ -1,0 +1,4 @@
+https://realpython.com/django-flashcards-app/#step-5-check-your-cards
+
+Step 5 - issue with load cards_tags / boxes_links template
+
