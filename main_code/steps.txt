@@ -5,3 +5,7 @@ Step 5 - issue with load cards_tags / boxes_links template
 RUN SERVER:
 
 To run server, navigate to quizmaster/main_code and run "python manage.py runserver" - Copy IP address into your browser. 
+
+If this doesn't work, try use "python3" - make sure to have django installed.
+
+pip install django
