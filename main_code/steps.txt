@@ -1,0 +1,22 @@
+https://realpython.com/django-flashcards-app/#step-5-check-your-cards
+
+Step 5 - issue with load cards_tags / boxes_links template
+
+RUN SERVER:
+
+To run server, navigate to quizmaster/main_code and run "python manage.py runserver" - Copy IP address into your browser. 
+
+If this doesn't work, try use "python3" - make sure to have django installed.
+
+pip install django
+
+
+06/29/2023
+
+- Update backend with frontend
+
+- Create teacher dashboard for when users try to login
+
+        - if you look in accounts/views --> you'll see login view has a redirect to "dashboards" - currently it is pointing to the "create new card template" as a place holder.
+                - this needs to be changed to display dashboard
+            
