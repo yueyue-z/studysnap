@@ -19,4 +19,7 @@ pip install django
 
         - if you look in accounts/views --> you'll see login view has a redirect to "dashboards" - currently it is pointing to the "create new card template" as a place holder.
                 - this needs to be changed to display dashboard
+
+
+https://www.youtube.com/watch?v=ws811svYIKo&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL&index=26 
             
