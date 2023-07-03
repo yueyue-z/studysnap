@@ -4,8 +4,12 @@ from . import views
 app_name = 'cards'
 
 urlpatterns = [
+    path('', views.landing_page, name='landing_page'), 
+    path('login', views.login, name='login'), 
+    path('signup/', views.signup, name='signup'), 
+    path('teacher_dashboard/', views.teacher_dashboard, name='teacher_dashboard'),
     path(
-        "",
+        "home",
         views.CardListView.as_view(),
         name="home"
     ),
@@ -19,6 +23,12 @@ urlpatterns = [
         views.CardUpdateView.as_view(),
         name="card-update"
     ),
+    path(
+        "view-question/<int:pk>",
+        views.card_question_view,
+        name="card-question"
+    ),
+
     path(
         "box/<int:box_num>",
         views.BoxView.as_view(),
