@@ -5,7 +5,16 @@ from django.db import models
 NUM_BOXES = 5
 BOXES = range(1, NUM_BOXES + 1)
 
+class QuizSet(models.Model):
+    teacher = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
 class Card(models.Model): # database model ORM
+    quiz_set = models.ForeignKey(QuizSet, on_delete=models.CASCADE, null=True, blank=True)
     question = models.CharField(max_length=100)
     answer = models.CharField(max_length=100)
     box = models.IntegerField(

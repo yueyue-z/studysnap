@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,400&display=swap');
+/* Reset some default styles in the browser */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Add a class to the body to avoid styling conflicts */
+body.landing-page {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://cdn.dribbble.com/userupload/4094964/file/original-6466429eea29e834a337a3c7fb6f6fb9.jpg?compress=1&resize=1600x1200');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Style the .navbar-custom naigation bar */
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a9cff;
+    background-image: linear-gradient(107deg, #3a9cff 0%, #843ef7 100%);
+    
+    padding: 10px 20px;
+}
+
+.navbar-custom img {
+    height: 40px;
+}
+
+.navbar-custom span {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.navbar-custom button {
+    background-color: white;
+    border: none;
+    color: #843ef7;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* Style the container */
+.landing-page .container {
+    text-align: center;
+    padding: 40px;
+}
+
+.landing-page .container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: #843ef7;
+    font-weight: bold;
+}
+
+.landing-page .container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+span.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+a.logo {
+    text-decoration: none;
+}
+
+/* Style for the centered white box */
+.content-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.signup-container {
+    display: flex;
+}
+
+.form-side {
+    flex: 1;
+    padding: 40px;
+}
+
+.graphic-side {
+    flex: 1;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.signup-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.form-side {
+    padding-top: 150px;
+}
+
+.form-side h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.form-side input {
+    width: 100%;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-side button {
+    background: #843ef7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-nav {
+    grid-column: 1/-1;
+}
+
+.flashcard-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.flashcard h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flashcard p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.question-card {
+    background: #843ef7;
+    color: white;
+    padding: 40px;
+}
+
+.question-card input[type=submit] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.flashcard-page {
+    background: #f4f4f4;
+}
+
+.question-card {
+    margin-top: 30px;
+}
+
+.question-card p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.question-card .question-no {
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.quiz-metadata h3 {
+    font-weight: bold;
+}
+
+.quiz-metadata h5 {
+    opacity: 0.7;
+}
+
+.dashboard-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.dashboard-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-container ul {
+    list-style: none;
+    padding:0;
+}
+
+.dashboard-container button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.create-new-quiz-set {
+    background: #843ef7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recently-added {
+    text-align: left;
+    margin-top: 20px;
+}

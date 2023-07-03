@@ -1,6 +1,8 @@
 # cards/views.py
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 import random
 from django.views.generic import (
     ListView,
@@ -9,10 +11,10 @@ from django.views.generic import (
     DeleteView,
 )
 
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import CardCheckForm
 
-from .models import Card
+from .models import Card, QuizSet
 
 class CardListView(ListView):
     model = Card
@@ -31,6 +33,7 @@ class CardUpdateView(LoginRequiredMixin, UpdateView):
     model = Card
     fields = ["question", "answer", "box"]
     success_url = reverse_lazy("card-list")
+
 
 class BoxView(CardListView):
     template_name = 'cards/box.html'
@@ -66,3 +69,23 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 
         return redirect(request.META.get("HTTP_REFERER"))
     
+
+def landing_page(request):
+    return render(request, 'landing_page.html')
+
+def signup(request):
+    return render(request, 'signup.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def card_question_view(request, pk):
+    card = Card.objects.get(id=pk)
+    return render(request, 'question_card.html', {'card': card})
+
+# @login_required
+def teacher_dashboard(request):
+    print(request.user)
+    quiz_sets = QuizSet.objects.all() # Replace with filter to get only sets of the current user
+    print(quiz_sets)
+    return render(request, 'teacher_dashboard.html', {'quiz_sets': quiz_sets})
