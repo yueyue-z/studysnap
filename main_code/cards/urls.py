@@ -5,11 +5,6 @@ app_name = 'cards'
 
 urlpatterns = [
     path(
-        "",
-        views.CardListView.as_view(),
-        name="home"
-    ),
-    path(
         "new/",
         views.CardCreateView.as_view(),
         name="card-create"
