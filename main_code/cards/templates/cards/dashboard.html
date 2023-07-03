@@ -1,0 +1,20 @@
+{% extends "cards/base.html" %}
+{% block content %}
+  <h2>Dashboard</h2>
+  <ul>
+    {% for card in cards %}
+      <li>
+        <h3>{{ card.question }}</h3>
+        <p>{{ card.answer }}</p>
+        <p><a href="{% url 'cards:card-update' pk=card.pk %}">Edit</a></p>
+
+        <form method="post" action="{% url 'cards:card-delete' card.pk %}">
+            {% csrf_token %}
+            <input type="submit" value="Delete card">
+        </form>
+      </li>
+    {% empty %}
+      <li>No cards yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

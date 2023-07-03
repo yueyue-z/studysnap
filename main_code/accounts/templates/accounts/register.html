@@ -9,10 +9,10 @@
             {{ form.as_p }}
             <button type='submit'>Register</button>
         </form>
-        <p>Already have an account? Please <a href='/login'>Login</a></p>
+        <p>Already have an account? Please <a href="{% url 'accounts:login' %}">Login</a></p>
     </div>
 {% else %}
-<p>You're already logged in and cannot register. Would you like to <a href='/logout/'>logout</a>?</p>
+<p>You're already logged in and cannot register. Would you like to <a href="{% url 'accounts:logout' %}">logout</a>?</p>
 {% endif %}
 
 {% endblock %}

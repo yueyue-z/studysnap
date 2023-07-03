@@ -6,6 +6,7 @@ from django.views.generic import (
     ListView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
 
 from django.shortcuts import get_object_or_404, redirect
@@ -18,18 +19,34 @@ class CardListView(ListView):
     queryset = Card.objects.all()
 
 class CardCreateView(LoginRequiredMixin, CreateView):
-    login_url = "/login/"
+    login_url = "/accounts/login/"
     redirect_field_name = "redirected_to"
-    success_url = reverse_lazy("card-create") # doesnt matter cause we have a dashboard redirect in accounts
+     # doesnt matter cause we have a dashboard redirect in accounts
     model = Card
     fields = ["question", "answer", "box"]
+    success_url = reverse_lazy("cards:home")
 
-# class CardUpdateView(CardCreateView, UpdateView):
-#     success_url = reverse_lazy("card-list")
+class CardUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = "/accounts/login/"
+    model = Card
+    fields = ["question", "answer", "box"]
+    success_url = reverse_lazy("card-list")
 
 class BoxView(CardListView):
     template_name = 'cards/box.html'
     form_class = CardCheckForm
+
+class DashboardView(LoginRequiredMixin, ListView):
+    login_url = "/accounts/login/"
+    redirect_field_name = "redirected_to"
+    model = Card
+    template_name = 'cards/dashboard.html'  # Set the correct path to your template
+    context_object_name = 'cards'  # Name of the variable to be used in the template
+
+class CardDeleteView(LoginRequiredMixin, DeleteView):
+    model = Card
+    success_url = reverse_lazy('cards:dashboard')
+
 
     def get_queryset(self):
       return Card.objects.filter(box=self.kwargs["box_num"])

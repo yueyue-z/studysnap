@@ -1,32 +1,15 @@
-"""
-URL configuration for flashcard_app project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
-from accounts.views import login_view, logout_view, register_view
-from cards.views import CardCreateView, BoxView, CardListView
 from django.conf import settings
+from cards.views import CardListView
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", CardListView.as_view()),
-    path("box/<int:box_num>", BoxView.as_view()),
-    path("login/", login_view),
-    path("new/", CardCreateView.as_view()),
-    path("logout/", logout_view),
-    path("register/", register_view),
-    path("dashboard/", CardCreateView.as_view()) # teacher dashboard
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('cards/', include('cards.urls', namespace='cards')),  # all card URLs are prefixed with 'cards/'
+    path('', CardListView.as_view(), name='home'),  # home page URL is the CardListView
+    path('dashboard/', RedirectView.as_view(pattern_name='cards:dashboard'), name='dashboard'),
+    # more paths as necessary
 ]
