@@ -2,19 +2,11 @@
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-
 import random
-from django.views.generic import (
-    ListView,
-    CreateView,
-    UpdateView,
-    DeleteView,
-)
-
+from django.views.generic import ListView, CreateView,UpdateView,DeleteView
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import CardCheckForm
-
-from .models import Card, QuizSet
+from .models import Card # add QuizSet
 
 class CardListView(ListView):
     model = Card
@@ -70,8 +62,6 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
         return redirect(request.META.get("HTTP_REFERER"))
     
 
-def landing_page(request):
-    return render(request, 'landing_page.html')
 
 def signup(request):
     return render(request, 'signup.html')
