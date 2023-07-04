@@ -143,7 +143,10 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;  /* make sure it is not set to none */
+    overflow: visible;  /* make sure the button is not being hidden due to overflow */
 }
+
 
 .dashboard-nav {
     grid-column: 1/-1;

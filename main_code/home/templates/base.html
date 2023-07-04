@@ -1,74 +1,35 @@
-<!-- cards/templates/cards/base.html -->
-<!-- For Sujith-->
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Flashcards</title>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-
-<style>
-    /* Custom CSS */
-
-    :root {
-        --accent: #6e48ad;
-        --accent-bg: white;
-        --bg: #fff;
-        --text: #212121;
-        --text-light: #585858;
-        --border: #d8dae1;
-        --code: #d81b60;
-        --preformatted: #444;
-    }
-
-    article {
-        background-color: var(--marked);
-        border: 1px solid var(--border);
-        border-radius: 5px;
-        padding: 1em;
-        margin: 1em 0;
-    }
-
-    h2 {
-        text-align: center;
-    }
-
-    h2, h4 {
-        margin-top: 0;
-    }
-
-    hr {
-        background: var(--accent)!important; 
-        border-color: var(--accent);
-    }
-
-    button,
-    a[role="button"] {
-        color: red;
-        text-decoration: none;
-    }
-
-    input, select, textarea {
-        width: 100%;
-    }
-</style>
 
 <body>
     <header>
-        <h1>Flashcars App</h1>
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'accounts:logout' %}">Logout</a>
-            <a href="{% url 'cards:dashboard' %}">Dashboard</a>
-        {% else %}
-            <a href="{% url 'accounts:login' %}">Login</a>
-        {% endif %}
-        <a href="{% url 'home:home' %}">Home</a>
-    </header>
+        <nav class="navbar-custom">
+            <div>
+                <a class="logo" href="{% url 'home:home' %}"><span class="logo">Quiz Master</span></a>
+            </div>
+            <div>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'accounts:logout' %}"><button>Logout</button></a>
+                <a href="{% url 'cards:dashboard' %}"><button>Dashboard</button></a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}"><button>Login</button></a>
+                <a href="{% url 'accounts:register' %}"><button>Sign up</button></a>
+            {% endif %}
+                <a href="{% url 'home:home' %}"><button>Home</button></a>
+                
+            </div>
+        </nav>
     <main>
         {% block content %}
-            <h2>Welcome to your Flashcards app!</h2>
+            
         {% endblock content %}
     </main>
 </body>

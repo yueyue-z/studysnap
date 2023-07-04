@@ -4,9 +4,7 @@ from . import views
 app_name = 'cards'
 
 urlpatterns = [
-    #path('login', views.login, name='login'), 
-    #path('signup/', views.signup, name='signup'), 
-    path('teacher_dashboard/', views.teacher_dashboard, name='teacher_dashboard'),
+\
     path("new/", views.CardCreateView.as_view(), name="card-create"),
     path("edit/<int:pk>", views.CardUpdateView.as_view(), name="card-update"),
     path("view-question/<int:pk>",views.card_question_view,name="card-question"),
