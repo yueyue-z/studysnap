@@ -10,14 +10,6 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body class="teacher-dashboard">
-    <nav class="navbar-custom">
-        <div>
-            <a class="logo" href="{% url 'cards:landing_page' %}"><span class="logo">Quiz Master</span></a>
-        </div>
-        <div>
-            <a href="{% url 'cards:signup' %}"><button>Log out</button></a>
-        </div>
-    </nav>
     <div class="dashboard-container">
         <h2>Quiz Set Library</h2>
         <button class="create-new-quiz-set">Create New Quiz Set</button>

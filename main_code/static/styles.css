@@ -146,7 +146,9 @@ button {
     display: inline-block;  /* make sure it is not set to none */
     overflow: visible;  /* make sure the button is not being hidden due to overflow */
 }
-
+.form-error {
+    color: red;
+}
 
 .dashboard-nav {
     grid-column: 1/-1;
@@ -240,4 +242,65 @@ button {
 .recently-added {
     text-align: left;
     margin-top: 20px;
+}
+
+
+/* Css for the dashboard page */
+#dashboard {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+#dashboard h2 {
+    color: #343a40;
+}
+
+#dashboard .dashboard-list {
+    list-style: none;
+    padding: 0;
+}
+
+#dashboard .dashboard-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.dashboard-btn,.dashboard-edit {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.dashboard-btn:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.dashboard-edit:hover{
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.dashboard-delete {
+    display: inline; /* To display 'Edit' link and 'Delete' button in the same line */
+}
+
+.dashboard-delete input[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
 }

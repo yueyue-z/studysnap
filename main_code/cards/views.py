@@ -17,13 +17,13 @@ class CardCreateView(LoginRequiredMixin, CreateView):
      # doesnt matter cause we have a dashboard redirect in accounts
     model = Card
     fields = ["question", "answer", "box"]
-    success_url = reverse_lazy("cards:home")
+    success_url = reverse_lazy("cards:dashboard")
 
 class CardUpdateView(LoginRequiredMixin, UpdateView):
     login_url = "/accounts/login/"
     model = Card
     fields = ["question", "answer", "box"]
-    success_url = reverse_lazy("card-list")
+    success_url = reverse_lazy("cards:dashboard")
 
 
 class BoxView(CardListView):
@@ -41,9 +41,8 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
     model = Card
     success_url = reverse_lazy('cards:dashboard')
 
-
     def get_queryset(self):
-      return Card.objects.filter(box=self.kwargs["box_num"])
+        return self.model.objects.all()
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -52,13 +51,13 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
             context["check_card"] = random.choice(self.object_list)
         return context
     
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            card = get_object_or_404(Card, id=form.cleaned_data["card_id"])
-            card.move(form.cleaned_data["solved"])
+    # def post(self, request, *args, **kwargs):
+    #     form = self.form_class(request.POST)
+    #     if form.is_valid():
+    #         card = get_object_or_404(Card, id=form.cleaned_data["card_id"])
+    #         card.move(form.cleaned_data["solved"])
 
-        return redirect(request.META.get("HTTP_REFERER"))
+    #     return redirect(request.META.get("HTTP_REFERER"))
     
 
 def card_question_view(request, pk):
