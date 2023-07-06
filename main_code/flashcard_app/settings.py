@@ -82,8 +82,13 @@ WSGI_APPLICATION = 'flashcard_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'quizmaster',
+        'USER': 'quizmaster_admin',
+        'PASSWORD': 'admin123!',
+        'HOST': "quizmaster.cgoswnpxbk9d.us-east-1.rds.amazonaws.com",
+        'PORT' : '5432'
+
     }
 }
 

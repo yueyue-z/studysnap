@@ -23,3 +23,14 @@ pip install django
 
 https://www.youtube.com/watch?v=ws811svYIKo&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL&index=26 
             
+
+
+postgres database: quizmaster
+
+Credentials: 
+
+Master Username: quizmaster_admin
+
+Master Password: admin123!
+
+port: 5432
