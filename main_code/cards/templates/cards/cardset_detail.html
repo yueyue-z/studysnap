@@ -1,0 +1,22 @@
+{% extends "cards/base.html" %}
+
+{% block content %}
+    <h2>Card Set: {{ cardset.name }}</h2>
+    <a href="{% url 'cards:cardset-update' pk=cardset.id %}">Edit Card Set</a>
+    <a href="{% url 'cards:cardset-delete' pk=cardset.id %}">Delete Card Set</a>
+
+    <h3>Cards:</h3>
+    <a href="{% url 'cards:card-create' cardset_id=cardset.id %}">Create New Card</a>
+    <ul>
+        {% for card in cardset.cards.all %}
+            <li>
+                <h4>{{ card.question }}</h4>
+                <p>{{ card.answer }}</p>
+                <a href="{% url 'cards:card-update' pk=card.id %}">Edit</a>
+                <a href="{% url 'cards:card-delete' pk=card.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No cards in this set.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
