@@ -10,29 +10,26 @@
   <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 
-
 <body>
-  <div id="dashboard"> <!-- Add this line -->
+  <div id="dashboard">
     <h2>Dashboard</h2>
-    <a href="{% url 'cards:card-create' %}" class="btn btn-primary dashboard-btn">Create New Card</a>
+    <a href="{% url 'cards:cardset-create' %}" class="btn btn-primary dashboard-btn">Create New Card Set</a>
     <ul class="dashboard-list">
-      {% for card in cards %}
-        <li class="dashboard-card">
-          <h3>Question -  {{ card.question }}</h3>
-          <p>Answer -  {{ card.answer }}</p>
-          <p><a href="{% url 'cards:card-update' pk=card.pk %}" class="dashboard-edit">Edit</a></p>
-
-          <form method="post" action="{% url 'cards:card-delete' card.pk %}" class="dashboard-delete">
+      {% for cardset in cardsets %}
+        <li class="dashboard-cardset">
+          <h3>CardSet Name -  {{ cardset.name }}</h3>
+          <a href="{% url 'cards:cardset-detail' pk=cardset.pk %}">View</a>
+          <a href="{% url 'cards:cardset-update' pk=cardset.pk %}" class="dashboard-edit">Edit</a>
+          <form method="post" action="{% url 'cards:cardset-delete' cardset.pk %}" class="dashboard-delete">
               {% csrf_token %}
-              <input type="submit" value="Delete card">
+              <input type="submit" value="Delete cardset">
           </form>
         </li>
       {% empty %}
-        <li>No cards yet.</li>
+        <li>No cardsets yet.</li>
       {% endfor %}
     </ul>
   </div>
 {% endblock %}
 </body>
 </html>
-  
