@@ -12,23 +12,30 @@
 
 <body>
   <div id="dashboard">
-    <h2>Dashboard</h2>
-    <a href="{% url 'cards:cardset-create' %}" class="btn btn-primary dashboard-btn">Create New Card Set</a>
-    <ul class="dashboard-list">
+    <h2 class="text-center mt-3" style="font-weight: 800;">Dashboard</h2>
+
+    <h2 class="title mt-5">Card Sets</h2>
+    <a href="{% url 'cards:cardset-create' %}" class="btn btn-primary dashboard-btn mb-5">Create New Card Set</a>
+    <div class="dashboard-list row">
       {% for cardset in cardsets %}
-        <li class="dashboard-cardset">
-          <h3>CardSet Name -  {{ cardset.name }}</h3>
-          <a href="{% url 'cards:cardset-detail' pk=cardset.pk %}">View</a>
-          <a href="{% url 'cards:cardset-update' pk=cardset.pk %}" class="dashboard-edit">Edit</a>
-          <form method="post" action="{% url 'cards:cardset-delete' cardset.pk %}" class="dashboard-delete">
+        <div class="dashboard-cardset col-md-4">
+          <div class="card pt-4 pb-4 px-3 py-3 mb-4">
+            <h5 class="card-title">{{ cardset.name }}</h5>
+            <p class="card-text">{{ cardset.date_created }}</p>
+          <!-- <h3>CardSet Name -  {{ cardset.name }}</h3> -->
+          
+          <a href="{% url 'cards:cardset-detail' pk=cardset.pk %}" class="btn btn-info mb-2 mt-5">View</a>
+          <a href="{% url 'cards:cardset-update' pk=cardset.pk %}" class="btn btn-secondary mb-2">Edit</a>
+          <form method="post" action="{% url 'cards:cardset-delete' cardset.pk %}" style="width: 100%;">
               {% csrf_token %}
-              <input type="submit" value="Delete cardset">
+              <input type="submit" class="btn btn-danger" value="Delete cardset" style="width: 100%;">
           </form>
-        </li>
+        </div>
+      </div>
       {% empty %}
-        <li>No cardsets yet.</li>
+        <div>No cardsets yet.</div>
       {% endfor %}
-    </ul>
+      </div>
   </div>
 {% endblock %}
 </body>
