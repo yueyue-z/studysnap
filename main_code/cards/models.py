@@ -8,7 +8,6 @@ from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
 
-
 class CardSet(models.Model):
     name = models.TextField() 
     description = models.TextField()

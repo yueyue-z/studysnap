@@ -1,5 +1,6 @@
 # cards/views.py
 from django.urls import reverse_lazy,reverse
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.shortcuts import get_object_or_404, redirect, render
@@ -14,8 +15,9 @@ class CardSetListView(LoginRequiredMixin, ListView):
 
 class CardSetCreateView(LoginRequiredMixin, CreateView):
     model = CardSet
-    fields = ["name"]
+    fields = ["name", "description", "author"]
     success_url = reverse_lazy("cards:cardset-list")
+
 
 class CardSetUpdateView(LoginRequiredMixin, UpdateView):
     model = CardSet
