@@ -1,0 +1,13 @@
+{% extends 'quiz/base.html' %}
+{% block content %}
+<h2>{{ cardset.name }}</h2>
+<p>{{ cardset.description }}</p>
+
+<h3>Cards:</h3>
+{% for card in cards %}
+  <div class="card">
+    <h4>{{ card.question }}</h4>
+    <p>{{ card.answer }}</p>
+  </div>
+{% endfor %}
+{% endblock content %}

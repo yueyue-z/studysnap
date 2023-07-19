@@ -8,21 +8,7 @@ To run server, navigate to quizmaster/main_code and run "python manage.py runser
 
 If this doesn't work, try use "python3" - make sure to have django installed.
 
-pip install django
-
-
-06/29/2023
-
-- Update backend with frontend
-
-- Create teacher dashboard for when users try to login
-
-        - if you look in accounts/views --> you'll see login view has a redirect to "dashboards" - currently it is pointing to the "create new card template" as a place holder.
-                - this needs to be changed to display dashboard
-
-
-https://www.youtube.com/watch?v=ws811svYIKo&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL&index=26 
-            
+pip install django            
 
 
 postgres database: quizmaster

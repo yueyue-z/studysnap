@@ -22,7 +22,6 @@
           <div class="card pt-4 pb-4 px-3 py-3 mb-4">
             <h5 class="card-title">{{ cardset.name }}</h5>
             <p class="card-text">{{ cardset.date_created }}</p>
-          <!-- <h3>CardSet Name -  {{ cardset.name }}</h3> -->
           
           <a href="{% url 'cards:cardset-detail' pk=cardset.pk %}" class="btn btn-info mb-2 mt-5">View</a>
           <a href="{% url 'cards:cardset-update' pk=cardset.pk %}" class="btn btn-secondary mb-2">Edit</a>

@@ -1,0 +1,12 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+    <h2>All Card Sets</h2>
+    {% for cardset in cardsets %}
+    <div class="cardset">
+        <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}">
+            <h3>{{ cardset.name }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+{% endblock content %}

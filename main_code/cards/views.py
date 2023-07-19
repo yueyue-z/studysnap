@@ -32,6 +32,12 @@ class CardSetDetailView(LoginRequiredMixin, DetailView):
     model = CardSet
     template_name = 'cards/cardset_detail.html'  # Path to your CardSet detail template
     context_object_name = 'cardset'  # Name of the variable to be used in the template
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cardset = self.get_object()
+        context['cards'] = cardset.card_set.all()
+        return context
 
 class CardListView(LoginRequiredMixin, ListView):
     model = Card

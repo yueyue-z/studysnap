@@ -9,7 +9,7 @@
     <h4 class="mt-4">Cards:</h4>
     <a href="{% url 'cards:card-create' cardset_id=cardset.id %}" class="btn btn-primary mb-3">Create New Card</a>
     <div class="row">
-        {% for card in cardset.cards.all %}
+        {% for card in cards %}
             <div class="col-md-4">
                 <div class="card pt-4 pb-4 px-3 py-3 mb-4">
                     <h5 class="card-title">{{ card.question }}</h5>

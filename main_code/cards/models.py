@@ -17,7 +17,6 @@ class CardSet(models.Model):
 
 
 class Card(models.Model): # database model ORM
-    #quiz_set = models.ForeignKey(QuizSet, on_delete=models.CASCADE, null=True, blank=True)
     question = models.TextField()
     answer = models.TextField()
     date_created = models.DateTimeField(default = timezone.now)
