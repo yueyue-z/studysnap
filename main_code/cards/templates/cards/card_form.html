@@ -8,10 +8,10 @@
 <h2>✨ Create New Card</h2>
 {% endif %}
     <form method="post">
-        <div class="form-group">
+        <div class="form-group form-style">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-primary mt-2" value="Save Card">
+        <input type="submit" class="btn btn-primary mt-3 mb-4" value="Save Card">
     </div>
     </form>
 </div>

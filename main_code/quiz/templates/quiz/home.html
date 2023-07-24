@@ -1,12 +1,21 @@
 {% extends 'quiz/base.html' %}
 
 {% block content %}
-    <h2>All Card Sets</h2>
-    {% for cardset in cardsets %}
-    <div class="cardset">
-        <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}">
-            <h3>{{ cardset.name }}</h3>
-        </a>
-    </div>
+    <h2 class="title mt-5 mb-4">All Card Sets</h2>
+    <div class="dashboard-list row mt-2">
+      {% for cardset in cardsets %}
+        <div class="dashboard-cardset col-md-4">
+          <div class="card pt-4 pb-4 px-3 py-3 mb-4">
+            <h5 class="card-title">{{ cardset.name }}</h5>
+            <p class="card-text">{{ cardset.date_created }}</p>
+          
+          <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}" class="btn btn-info mb-2 mt-5">
+            <i class="fa fa-eye"></i> Take a Quiz
+          </a>
+        </div>
+      </div>
+      {% empty %}
+        <div>No cardsets yet.</div>
+      </div>
     {% endfor %}
 {% endblock content %}

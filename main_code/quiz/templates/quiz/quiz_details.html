@@ -1,13 +1,60 @@
 {% extends 'quiz/base.html' %}
 {% block content %}
-<h2>{{ cardset.name }}</h2>
-<p>{{ cardset.description }}</p>
 
-<h3>Cards:</h3>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+<div class="mt-5 quiz-metadata">
+  <p class="mb-2">Quiz set:</p>
+  <h3>{{ cardset.name }}</h3>
+  <h5>{{ cardset.description }}</h5>
+</div>
+</div>
+<div class="col-md-3"></div>
+</div>
+<div class="container">
+      
 {% for card in cards %}
-  <div class="card">
-    <h4>{{ card.question }}</h4>
-    <p>{{ card.answer }}</p>
-  </div>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flippable appcon ac-question question-card content-box">
+      <div class="front">
+        <p class="question-no">Question: {{ card.pk }}</p>
+        <h4>{{ card.question }}</h4>
+        <hr class="mt-4">
+        <p class="click-to-reveal">Click to reveal answer</p>
+      </div>
+      <div class="back">
+        <p class="question-no">Answer:</p>
+        <p>{{ card.answer }}</p>
+        <hr class="mt-4">
+        <p class="click-to-reveal">Click to see the question</p>
+      </div>
+    </div>
+</div>
+          </div>
+  <div class="col-md-3"></div>
+</div>
 {% endfor %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var elements = document.querySelectorAll(".flippable");
+
+  elements.forEach(function(element) {
+    element.addEventListener("click", function(event) {
+      event.preventDefault(); // This line prevents the default action
+      console.log(this.classList);
+      if (this.classList.contains("flipme")) {
+        this.classList.remove("flipme");
+      } else {
+        this.classList.add("flipme");
+      }
+    });
+  });
+});
+
+  </script>
 {% endblock content %}
