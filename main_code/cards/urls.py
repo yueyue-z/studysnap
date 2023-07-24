@@ -13,7 +13,8 @@ urlpatterns = [
     path("", views.CardListView.as_view()),
     # Add these paths for the CardSet views
     path("cardset/", views.CardSetListView.as_view(), name="cardset-list"),
-    path("cardset/new/", views.CardSetCreateView.as_view(), name="cardset-create"),
+    # path("cardset/new/", views.CardSetCreateView.as_view(), name="cardset-create"),
+    path("cardset/new/", views.CardSetCreateView, name="cardset-create"),
     path("cardset/edit/<int:pk>", views.CardSetUpdateView.as_view(), name="cardset-update"),
     path("cardset/<int:pk>", views.CardSetDetailView.as_view(), name="cardset-detail"),
     path("cardset/delete/<int:pk>", views.CardSetDeleteView.as_view(), name="cardset-delete"),

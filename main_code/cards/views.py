@@ -5,7 +5,32 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Card, CardSet
-from .forms import CardCheckForm
+from .forms import CardSetForm
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+
+@login_required
+def CardSetCreateView(request):
+    submitted = False
+    if request.method == 'POST':
+        form = CardSetForm(request.POST)
+
+        if request.user.is_authenticated:
+            author = User.objects.get(pk=request.user.id)
+            form.instance.author = author
+           
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect ('/cards/cardset?submitted=True')
+        
+    else:
+        form = CardSetForm
+        if 'submitted' in request.GET:
+            submitted = True
+
+    return render(request, 'cards/cardset_form.html',{'form':form, 'submitted': submitted})
+
 
 class CardSetListView(LoginRequiredMixin, ListView):
     model = CardSet
@@ -13,11 +38,10 @@ class CardSetListView(LoginRequiredMixin, ListView):
     template_name = 'cards/cardset_list.html'  # Path to your CardSet list template
     context_object_name = 'cardsets'  # Name of the variable to be used in the template
 
-class CardSetCreateView(LoginRequiredMixin, CreateView):
-    model = CardSet
-    fields = ["name", "description", "author"]
-    success_url = reverse_lazy("cards:cardset-list")
-
+# class CardSetCreateView(LoginRequiredMixin, CreateView):
+#     model = CardSet
+#     fields = ["name", "description"]
+#     success_url = reverse_lazy("cards:cardset-list")
 
 class CardSetUpdateView(LoginRequiredMixin, UpdateView):
     model = CardSet
@@ -56,7 +80,6 @@ class CardCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse("cards:cardset-detail", kwargs={'pk': self.kwargs['cardset_id']})
 
-
 class CardUpdateView(LoginRequiredMixin, UpdateView):
     model = Card
     fields = ["question", "answer", "card_set"]
@@ -74,16 +97,3 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 def card_question_view(request, pk):
     card = Card.objects.get(id=pk)
     return render(request, 'question_card.html', {'card': card})
-
-
-    def get_queryset(self):
-        return self.model.objects.all()
-
-    
-    # def post(self, request, *args, **kwargs):
-    #     form = self.form_class(request.POST)
-    #     if form.is_valid():
-    #         card = get_object_or_404(Card, id=form.cleaned_data["card_id"])
-    #         card.move(form.cleaned_data["solved"])
-
-    #     return redirect(request.META.get("HTTP_REFERER"))
