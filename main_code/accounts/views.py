@@ -6,6 +6,7 @@ def register_view(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
         user_obj = form.save()
+        print(user_obj)
         return redirect('accounts:login')
     context = {"form": form}
     return render(request, "accounts/register.html", context)

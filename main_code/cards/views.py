@@ -90,6 +90,13 @@ class DashboardView(LoginRequiredMixin, ListView):
     template_name = 'cards/dashboard.html'
     context_object_name = 'cardsets'  # Changed from 'cards' to 'cardsets'
 
+    def get_queryset(self):
+        # Filter the CardSet model by the current user
+        return CardSet.objects.filter(author_id=self.request.user.id)
+
+
+
+
 class CardDeleteView(LoginRequiredMixin, DeleteView):
     model = Card
     success_url = reverse_lazy('cards:dashboard')
