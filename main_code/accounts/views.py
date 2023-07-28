@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from . import forms
 from django.shortcuts import render, redirect
 
 def register_view(request):
-    form = UserCreationForm(request.POST or None)
+    form = forms.CustomUserCreationForm(request.POST or None)
     if form.is_valid():
         user_obj = form.save()
         print(user_obj)
@@ -13,7 +14,6 @@ def register_view(request):
 
 # Create your views here.
 def login_view(request):
-    # future -> ?next=/articles/create/
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
