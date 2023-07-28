@@ -21,8 +21,9 @@
         <div class="dashboard-cardset col-md-4">
           <div class="card pt-4 pb-4 px-3 py-3 mb-4">
             <h5 class="card-title">{{ cardset.name }}</h5>
+            <p class="card-text">{{ cardset.first_name }} {{cardset.last_name}}</p>
+
             <p class="card-text">{{ cardset.date_created }}</p>
-          
           <a href="{% url 'cards:cardset-detail' pk=cardset.pk %}" class="btn btn-info mb-2 mt-5">View</a>
           <a href="{% url 'cards:cardset-update' pk=cardset.pk %}" class="btn btn-secondary mb-2">Edit</a>
           <form method="post" action="{% url 'cards:cardset-delete' cardset.pk %}" style="width: 100%;">

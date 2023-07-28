@@ -9,10 +9,12 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 class CardSet(models.Model):
+    author = models.ForeignKey(User, blank = True, null = True, on_delete=models.SET_NULL)
+    first_name = models.CharField(max_length = 100, null = True)
+    last_name = models.CharField(max_length = 100, null = True)
     name = models.TextField() 
     description = models.TextField()
     date_created = models.DateTimeField(default = timezone.now)
-    author = models.ForeignKey(User, blank = True, null = True, on_delete=models.SET_NULL)
 
 
 

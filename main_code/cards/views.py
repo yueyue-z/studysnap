@@ -18,6 +18,9 @@ def CardSetCreateView(request):
         if request.user.is_authenticated:
             author = User.objects.get(pk=request.user.id)
             form.instance.author = author
+            form.instance.first_name = request.user.first_name
+            form.instance.last_name = request.user.last_name
+            
            
 
         if form.is_valid():
