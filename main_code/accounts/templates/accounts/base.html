@@ -1,4 +1,5 @@
-
+<!-- cards/templates/cards/base.html -->
+<!-- For Sujith-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@
         <nav class="navbar-custom">
             <div>
                 <a class="logo" href="{% url 'home:home' %}"><span class="logo">Quiz Master</span></a>
+                <a href="{% url 'quiz:quiz-home' %}"><button>Take a Quiz</button></a>
             </div>
             <div>
                 {% if request.user.is_authenticated %}
@@ -29,7 +31,7 @@
         </nav>
     <main>
         {% block content %}
-            
+            <h2>Welcome to your Flashcards app!</h2>
         {% endblock content %}
     </main>
 </body>

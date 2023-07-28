@@ -1,0 +1,14 @@
+{% extends "cards/base.html" %}
+
+{% block content %}
+<div class="mt-5">
+    <h2>Create a new card set</h2>
+    <form method="post">
+        <div class="form-group mt-5 form-style">
+        {% csrf_token %}
+        {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 mb-4">Save</button>
+    </form>
+</div>
+{% endblock %}

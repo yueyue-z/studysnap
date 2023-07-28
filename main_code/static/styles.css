@@ -249,8 +249,8 @@ button {
 #dashboard {
     font-family: Arial, sans-serif;
     padding: 10px;
-    background-color: #f8f9fa;
 }
+
 
 #dashboard h2 {
     color: #343a40;
@@ -304,3 +304,104 @@ button {
     border-radius: 3px;
     cursor: pointer;
 }
+
+.btn-primary {
+    background: #843ef7;
+    border-color: #843ef7;
+}
+
+.btn-info {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.card p {
+    background-color: white;
+}
+
+.question-card p {
+    background-color: unset;
+}
+
+.form-style label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.flip-container {
+    perspective: 1000;
+    float: left;
+    cursor: pointer;
+    /*  &:hover{
+      .flippable {
+        transform: rotateY(180deg);
+      }
+    }*/
+  }
+  .flip-container .flippable {
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .flip-container .flipme {
+    transform: rotateY(180deg);
+  }
+  .flip-container,
+  .front,
+  .back {
+    width: 100%;
+    min-height: 100px;
+    line-height: 100px;
+    font-size: 40px;
+    border-radius: 5px;
+  }
+  .front,
+  .back {
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+  .front {
+    z-index: 2;
+  }
+  .front span {
+    font-size: 20px;
+    position: absolute;
+    top: -30px;
+    left: 10px;
+  }
+  .back {
+    transform: rotateY(180deg);
+    font-size: 18px;
+  }
+
+  .back {
+    display: none;
+  }
+
+  .flipme .back {
+    display: block;
+  }
+
+  .flipme .front {
+    display: none;
+  }
+
+  .ac-question .front {
+    background: #843ef7;
+  }
+  .ac-question .back {
+    background: #843ef7;
+  }
+
+  .click-to-reveal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium!important;
+    opacity: 0.7;
+    font-weight: 300;
+    margin-top: -10px;
+    margin-bottom: -25px;
+  }

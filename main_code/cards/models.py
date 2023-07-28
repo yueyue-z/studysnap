@@ -1,38 +1,24 @@
 # cards/models.py
 
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.conf import settings
 
-NUM_BOXES = 5
-BOXES = range(1, NUM_BOXES + 1)
+User = settings.AUTH_USER_MODEL
 
-# class QuizSet(models.Model):
-#     teacher = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-#     title = models.CharField(max_length=100)
-#     date_created = models.DateTimeField(auto_now_add=True)
+class CardSet(models.Model):
+    name = models.TextField() 
+    description = models.TextField()
+    date_created = models.DateTimeField(default = timezone.now)
+    author = models.ForeignKey(User, blank = True, null = True, on_delete=models.SET_NULL)
 
-#     def __str__(self):
-#         return self.title
+
 
 class Card(models.Model): # database model ORM
-    #quiz_set = models.ForeignKey(QuizSet, on_delete=models.CASCADE, null=True, blank=True)
-    question = models.CharField(max_length=100)
-    answer = models.CharField(max_length=100)
-    box = models.IntegerField(
-        choices=zip(BOXES, BOXES),
-        default=BOXES[0],
-    )
-    date_created = models.DateTimeField(auto_now_add=True)
-
-
-    def move(self, solved):
-        new_box = self.box + 1 if solved else BOXES[0]
-
-        if new_box in BOXES:
-            self.box = new_box
-            self.save()
-            
-        return self
-
-    def __str__(self):
-        return self.question
+    question = models.TextField()
+    answer = models.TextField()
+    date_created = models.DateTimeField(default = timezone.now)
+    card_set = models.ForeignKey(CardSet, on_delete = models.CASCADE, null=True,blank = True)
     
