@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='cardset',
             name='first_name',
-            field=models.CharField(default='PlaceHolder', max_length=100),
+            field=models.CharField(default='FirstName', max_length=100),
         ),
         migrations.AddField(
             model_name='cardset',
             name='last_name',
-            field=models.CharField(default='PlaceHolder', max_length=100),
+            field=models.CharField(default='LastName', max_length=100),
         ),
     ]
