@@ -7,7 +7,13 @@ from django.views.generic import  DetailView
 
 class QuizHomeView(View):
     def get(self, request):
-        cardsets = CardSet.objects.all()
+        query = request.GET.get('q')
+
+        if query is not None:
+            cardsets = CardSet.objects.filter(name__icontains=query)
+        else:
+            cardsets = CardSet.objects.all()
+
         return render(request, 'quiz/home.html', {'cardsets': cardsets})
 
 class CardSetPublicDetailView(DetailView):
