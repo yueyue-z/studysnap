@@ -25,7 +25,7 @@ def CardSetCreateView(request):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect ('/cards/cardset?submitted=True')
+            return HttpResponseRedirect ('/cards/dashboard?submitted=True')
         
     else:
         form = CardSetForm
@@ -34,26 +34,14 @@ def CardSetCreateView(request):
 
     return render(request, 'cards/cardset_form.html',{'form':form, 'submitted': submitted})
 
-
-class CardSetListView(LoginRequiredMixin, ListView):
-    model = CardSet
-    queryset = CardSet.objects.all()
-    template_name = 'cards/cardset_list.html'  # Path to your CardSet list template
-    context_object_name = 'cardsets'  # Name of the variable to be used in the template
-
-# class CardSetCreateView(LoginRequiredMixin, CreateView):
-#     model = CardSet
-#     fields = ["name", "description"]
-#     success_url = reverse_lazy("cards:cardset-list")
-
 class CardSetUpdateView(LoginRequiredMixin, UpdateView):
     model = CardSet
     fields = ["name"]
-    success_url = reverse_lazy("cards:cardset-list")
+    success_url = reverse_lazy("cards:dashboard")
 
 class CardSetDeleteView(LoginRequiredMixin, DeleteView):
     model = CardSet
-    success_url = reverse_lazy('cards:cardset-list')
+    success_url = reverse_lazy('cards:dashboard')
 
 class CardSetDetailView(LoginRequiredMixin, DetailView):
     model = CardSet
