@@ -72,8 +72,10 @@ class CardCreateView(LoginRequiredMixin, CreateView):
 
 class CardUpdateView(LoginRequiredMixin, UpdateView):
     model = Card
-    fields = ["question", "answer", "card_set"]
-    success_url = reverse_lazy("cards:dashboard")
+    fields = ["question", "answer"]
+
+    def get_success_url(self):
+        return reverse('cards:cardset-detail', kwargs={'pk': self.object.card_set.id})
 
 class DashboardView(LoginRequiredMixin, ListView):
     model = CardSet  # Changed from Card to CardSet
