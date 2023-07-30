@@ -4,7 +4,7 @@
     <p class="mt-5" style="margin-bottom: -5px">Card Set:</p>
     <h2 class="mb-3">{{ cardset.name }}</h2>
     <a href="{% url 'cards:cardset-update' pk=cardset.id %}" class="btn btn-secondary">Edit Card Set</a>
-    <a href="{% url 'cards:cardset-delete' pk=cardset.id %}" class="btn btn-danger">Delete Card Set</a>
+    <a href="{% url 'cards:cardset-delete' pk=cardset.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Card Set?');">Delete Card Set</a>
 
     <h4 class="mt-4">Cards:</h4>
     <a href="{% url 'cards:card-create' cardset_id=cardset.id %}" class="btn btn-primary mb-3">Create New Card</a>
@@ -15,7 +15,7 @@
                     <h5 class="card-title">{{ card.question }}</h5>
                     <p class="card-text">{{ card.answer }}</p>
                 <a href="{% url 'cards:card-update' pk=card.id %}" class="btn btn-secondary mt-3 mb-3">Edit</a>
-                <a href="{% url 'cards:card-delete' pk=card.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'cards:card-delete' pk=card.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Card?');">Delete Card</a>
                 </div>
             </div>
         {% empty %}
