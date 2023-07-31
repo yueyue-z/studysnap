@@ -14,18 +14,10 @@ def CardSetCreateView(request):
     submitted = False
     if request.method == 'POST':
         form = CardSetForm(request.POST)
-
-        if request.user.is_authenticated:
-            author = User.objects.get(pk=request.user.id)
-            form.instance.author = author
-            form.instance.first_name = request.user.first_name
-            form.instance.last_name = request.user.last_name
-            
-           
-
         if form.is_valid():
+            form.instance.author = request.user
             form.save()
-            return HttpResponseRedirect ('/cards/dashboard?submitted=True')
+            return HttpResponseRedirect('/cards/dashboard?submitted=True')
         
     else:
         form = CardSetForm
@@ -41,7 +33,14 @@ class CardSetUpdateView(LoginRequiredMixin, UpdateView):
 
 class CardSetDeleteView(LoginRequiredMixin, DeleteView):
     model = CardSet
-    success_url = reverse_lazy('cards:dashboard')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect('cards:dashboard')
 
 class CardSetDetailView(LoginRequiredMixin, DetailView):
     model = CardSet
@@ -73,8 +72,10 @@ class CardCreateView(LoginRequiredMixin, CreateView):
 
 class CardUpdateView(LoginRequiredMixin, UpdateView):
     model = Card
-    fields = ["question", "answer", "card_set"]
-    success_url = reverse_lazy("cards:dashboard")
+    fields = ["question", "answer"]
+
+    def get_success_url(self):
+        return reverse('cards:cardset-detail', kwargs={'pk': self.object.card_set.id})
 
 class DashboardView(LoginRequiredMixin, ListView):
     model = CardSet  # Changed from Card to CardSet
@@ -90,7 +91,15 @@ class DashboardView(LoginRequiredMixin, ListView):
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):
     model = Card
-    success_url = reverse_lazy('cards:dashboard')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        cardset_id = self.object.card_set.id
+        self.object.delete()
+        return redirect('cards:cardset-detail', pk=cardset_id)
 
 def card_question_view(request, pk):
     card = Card.objects.get(id=pk)

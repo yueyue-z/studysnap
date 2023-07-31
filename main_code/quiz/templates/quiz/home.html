@@ -11,6 +11,7 @@
         <div class="dashboard-cardset col-md-4">
           <div class="card pt-4 pb-4 px-3 py-3 mb-4">
             <h5 class="card-title">{{ cardset.name }}</h5>
+            <p class="card-text">Created by: {{ cardset.author.first_name }} {{ cardset.author.last_name }}</p>
             <p class="card-text">{{ cardset.date_created }}</p>
           
           <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}" class="btn btn-info mb-2 mt-5">
