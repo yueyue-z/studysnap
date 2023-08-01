@@ -15,12 +15,12 @@
             <p class="card-text">{{ cardset.date_created }}</p>
           
           <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}" class="btn btn-info mb-2 mt-5">
-            <i class="fa fa-eye"></i> Take a Quiz
+            <i class="fa fa-graduation-cap"></i> Get Started
           </a>
         </div>
       </div>
       {% empty %}
-        <div>No cardsets yet.</div>
+        <div>No card sets yet. Go ahead and create one!</div>
       </div>
     {% endfor %}
 {% endblock content %}

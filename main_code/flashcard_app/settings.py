@@ -146,5 +146,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'jpa203@bu.edu'
-EMAIL_HOST_PASSWORD = 'notyet'
+EMAIL_HOST_USER = 'bustudysnap@gmail.com'
+EMAIL_HOST_PASSWORD = 'xbaotloaocqvcprk'
