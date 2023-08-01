@@ -10,7 +10,7 @@ User = settings.AUTH_USER_MODEL
 
 class CardSet(models.Model):
     author = models.ForeignKey(User, blank = True, null = True, on_delete=models.SET_NULL)
-    name = models.TextField() 
+    name = models.CharField(max_length =255) 
     description = models.TextField()
     date_created = models.DateTimeField(default = timezone.now)
 

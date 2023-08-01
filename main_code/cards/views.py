@@ -28,7 +28,7 @@ def CardSetCreateView(request):
 
 class CardSetUpdateView(LoginRequiredMixin, UpdateView):
     model = CardSet
-    fields = ["name"]
+    fields = ["name","description"]
     success_url = reverse_lazy("cards:dashboard")
 
 class CardSetDeleteView(LoginRequiredMixin, DeleteView):
