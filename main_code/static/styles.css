@@ -5,6 +5,10 @@ body, h1, p {
     padding: 0;
 }
 
+body {
+    min-height: 100vh; background: linear-gradient(45deg, #e5f2f9, #e7e3ff);
+}
+
 /* Add a class to the body to avoid styling conflicts */
 body.landing-page {
     font-family: 'Roboto', sans-serif;
@@ -103,7 +107,6 @@ a.logo {
 }
 
 input[type=text], input[type=password], input[type=email] {
-    display: block;
     margin-bottom: 10px;
     padding: 10px;
     font-size: 18px;
@@ -116,11 +119,10 @@ button {
 
 .signup-page {
     height: 100vh;
-    overflow: hidden;
 }
 
 .form-side {
-    padding-top: 150px;
+    padding-top: 20px;
 }
 
 .form-side h2 {
@@ -172,7 +174,7 @@ button {
 .question-card {
     background: #843ef7;
     color: white;
-    padding: 40px;
+    padding: 40px 50px;
 }
 
 .question-card input[type=submit] {
@@ -404,4 +406,8 @@ button {
     font-weight: 300;
     margin-top: -10px;
     margin-bottom: -25px;
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    width: 10%!important;
   }

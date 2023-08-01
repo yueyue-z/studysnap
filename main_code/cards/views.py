@@ -14,15 +14,10 @@ def CardSetCreateView(request):
     submitted = False
     if request.method == 'POST':
         form = CardSetForm(request.POST)
-
-        if request.user.is_authenticated:
-            author = User.objects.get(pk=request.user.id)
-            form.instance.author = author
-           
-
         if form.is_valid():
+            form.instance.author = request.user
             form.save()
-            return HttpResponseRedirect ('/cards/cardset?submitted=True')
+            return HttpResponseRedirect('/cards/dashboard?submitted=True')
         
     else:
         form = CardSetForm
@@ -31,26 +26,21 @@ def CardSetCreateView(request):
 
     return render(request, 'cards/cardset_form.html',{'form':form, 'submitted': submitted})
 
-
-class CardSetListView(LoginRequiredMixin, ListView):
-    model = CardSet
-    queryset = CardSet.objects.all()
-    template_name = 'cards/cardset_list.html'  # Path to your CardSet list template
-    context_object_name = 'cardsets'  # Name of the variable to be used in the template
-
-# class CardSetCreateView(LoginRequiredMixin, CreateView):
-#     model = CardSet
-#     fields = ["name", "description"]
-#     success_url = reverse_lazy("cards:cardset-list")
-
 class CardSetUpdateView(LoginRequiredMixin, UpdateView):
     model = CardSet
-    fields = ["name"]
-    success_url = reverse_lazy("cards:cardset-list")
+    fields = ["name","description"]
+    success_url = reverse_lazy("cards:dashboard")
 
 class CardSetDeleteView(LoginRequiredMixin, DeleteView):
     model = CardSet
-    success_url = reverse_lazy('cards:cardset-list')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect('cards:dashboard')
 
 class CardSetDetailView(LoginRequiredMixin, DetailView):
     model = CardSet
@@ -82,8 +72,10 @@ class CardCreateView(LoginRequiredMixin, CreateView):
 
 class CardUpdateView(LoginRequiredMixin, UpdateView):
     model = Card
-    fields = ["question", "answer", "card_set"]
-    success_url = reverse_lazy("cards:dashboard")
+    fields = ["question", "answer"]
+
+    def get_success_url(self):
+        return reverse('cards:cardset-detail', kwargs={'pk': self.object.card_set.id})
 
 class DashboardView(LoginRequiredMixin, ListView):
     model = CardSet  # Changed from Card to CardSet
@@ -99,7 +91,15 @@ class DashboardView(LoginRequiredMixin, ListView):
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):
     model = Card
-    success_url = reverse_lazy('cards:dashboard')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        cardset_id = self.object.card_set.id
+        self.object.delete()
+        return redirect('cards:cardset-detail', pk=cardset_id)
 
 def card_question_view(request, pk):
     card = Card.objects.get(id=pk)

@@ -1,0 +1,55 @@
+Question,Answer,Correct Answer,Jenny Answer,Wei Answer,Yueyue Answer,Correct Answers,Difficulty
+What is software engineering?,"The systematic approach to developing, operating, and retiring software.",A,A,A,A,3,Easy
+What is the role of a senior manager in software engineering?,Focusing on the long-term vitality of the organization and overseeing multiple projects.,C,C,C,C,3,Easy
+How does organizational culture affect software processes?,It influences the degree to which software processes are documented and followed.,B,B,B,B,3,Easy
+What is a project in software engineering?,A sequence of activities leading to a predefined deliverable.,B,C,A,B,1,Difficult
+What is a milestone in a software project?,"A significant event, usually the completion of a major deliverable.",B,B,B,B,3,Easy
+What is a Work Breakdown Structure (WBS)?,A hierarchical grouping that defines the project's total work scope.,A,A,B,A,2,Medium
+What is a Change Control Board (CCB)?,A group responsible for approving or rejecting changes to project baselines or configuration items.,B,B,B,B,3,Easy
+What are software inspections?,Formal examinations of work products by peers to identify defects.,A,A,A,A,3,Easy
+What is Software Configuration Management (SCM)?,The maintenance of the integrity of software products throughout the project's life cycle.,C,C,C,C,3,Easy
+What is dynamic testing in software engineering?,Executing a program to find errors.,A,B,A,A,2,Medium
+Why is it necessary to do T-shirt sizing? Why not go directly to exploratory scoping?,"If the T-shirt size is XXL, the feature may not go any further, as its split is requested.",B,B,B,A,2,Medium
+What is the expected estimation accuracy from exploratory scoping?,30%,C,C,B,C,2,Medium
+What are the responsibilities of a software leader or manager?,"Functions as a manager/generalist, aligns culture with project goals, establishes development processes.",A,A,A,A,3,Easy
+What does IEEE promote in software engineering management?,"The BOK for a CSDP, which includes Software Engineering Management.",B,A,B,B,2,Medium
+Why is aligning company culture with project goals important for a software leader?,It ensures cohesion between the organizational culture and the objectives of the project.,A,A,A,A,3,Easy
+What should a product owner focus on when describing a feature?,"A feature should be described as independent from other features, without reference to a timeframe or projected release.",A,A,A,C,2,Medium
+Why is it important for the Technical Lead and Product Manager to have a real conversation during the Requirements Management process?,"To ensure a thorough understanding of the feature, allows for clarification through questions, and helps in refining the feature description and assigning a new version.",A,A,A,A,3,Easy
+What is the response when asked if more time to work on an estimate can reduce uncertainty?,No,C,B,B,C,1,Difficult
+How can we aggregate estimates from different features?,Estimates are aggregated at the effort level,B,B,B,B,3,Easy
+What to do if it's unfeasible to estimate size?,"Use an analogy for size, then derive effort from size",B,B,B,B,3,Easy
+What does a successful software business use to guide its projects?,A product-delivery life cycle,B,B,B,B,3,Easy
+What are the key processes covered by an organizational life cycle?,"Software, Hardware, Service, and Manufacturing",A,,C,C,0,Difficult
+Are all life cycles the same for every organization?,No,B,,B,C,1,Difficult
+What are common features among successful life cycles?,"Tailored project plans, time charging to specific activities, large-scale contributions to a single delivery, and overlapping phases",B,,B,B,2,Medium
+What is an important aspect of the system test phase in a life cycle?,Automation of system testing,B,B,B,B,3,Easy
+How does a product-delivery life cycle impact project planning?,Project plans are tailored to fit into the product-delivery life cycle,A,A,A,A,3,Easy
+How do people allocate their time in a product-delivery life cycle?,They charge their time to activities within each phase,B,,B,C,1,Difficult
+What is the scale of contributions in a delivery model?,Thousands of people contributing to a single delivery,B,,A,C,0,Difficult
+Do phases in a life cycle have overlap?,Yes,A, A,A,A,2,Medium
+What does SCM stand for?,Software Configuration Management,B,,B,B,2,Medium
+What is the purpose of SCM?,To maintain integrity of product parts throughout a project life cycle,B,,B,B,2,Medium
+How many overriding processes are established by SCM?,Four,B,,C,C,0,Difficult
+Why is it important to trace the chain of events for software changes?,To understand how following the SCM processes prevents unintended software changes and avoids chaos,B,,B,C,1,Difficult
+"What does the article ""The highs and lows of change control"" emphasize?",The balancing act of change control and its importance despite the challenges it poses,C,,C,C,2,Medium
+What is the purpose of the Scrum Guide?,To help people worldwide understand Scrum,B,,C,C,0,Difficult
+What happens when core elements of Scrum are changed or left out?,It can cover up problems and limit the benefits of Scrum,C,,C,C,2,Easy
+Can Scrum be used beyond software product development?,"Yes, Scrum can be adopted in many domains with essentially complex work",A,,A,A,2,Easy
+"What do the ""developers"" refer to in Scrum?",It simplifies the language and does not exclude anyone who gets value from Scrum,B,,A,A,0,Difficult
+Are detailed instructions provided in the Scrum Guide?,"No, the rules of Scrum guide relationships and interactions instead",B,,A,B,1,Medium
+What does Scrum make visible?,"The relative efficacy of current management, environment, and work techniques",C,,B,C,1,Medium
+What are the foundations of Scrum?,Empiricism and lean thinking,B,,C,A,0,Difficult
+What are the three pillars of Scrum?,"Transparency, inspection, and adaptation",B,,B,A,1,Medium
+What does transparency enable?,Inspection,B,,A,A,0,Difficult
+What does inspection enable?,Adaptation,B,,A,A,0,Difficult
+When should adaptation occur?,As soon as possible to minimize further deviation,B,,B,C,1,Medium
+What are the five Scrum values?,"Commitment, focus, openness, respect, and courage",B,,B,A,1,Medium
+How many individuals are typically in a Scrum Team?,10 or fewer people,B,,B,C,1,Medium
+Who is accountable for maximizing the value of the product in Scrum?,The Product Owner,C,,C,A,1,Medium
+What is the goal of peer reviews?,To reveal hidden defects in work products,B,,B,B,2,Easy
+Why are peer reviews effective?,They complement other verification methods and find defects that would be otherwise impossible to find,B,,B,B,2,Easy
+How does the defect removal efficiency of personal editing compare to peer reviews?,Personal editing has lower efficiency compared to peer reviews,C,,C,C,2,Easy
+Why is it difficult to find defects in your own work?,"There are various reasons, but peer reviews offer a fresh perspective and uncover issues more effectively",B,,B,B,2,Easy
+How much more effective are formal inspections or peer reviews compared to personal editing?,They are about three times more effective,B,,A,C,0,Difficult
+Is it cheaper to facilitate a peer review than to find your own defects?,"Yes, the cost of peer reviews is lower compared to finding defects individually",A,,B,B,0,Difficult

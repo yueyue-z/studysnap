@@ -2,20 +2,25 @@
 
 {% block content %}
     <h2 class="title mt-5 mb-4">All Card Sets</h2>
+    <form method="GET" action="{% url 'quiz:quiz-home' %}">
+      <input type="text" name="q" placeholder="Search for card sets" value="{{ request.GET.q }}">
+      <input type="submit" value="Search">
+  </form>
     <div class="dashboard-list row mt-2">
       {% for cardset in cardsets %}
         <div class="dashboard-cardset col-md-4">
           <div class="card pt-4 pb-4 px-3 py-3 mb-4">
             <h5 class="card-title">{{ cardset.name }}</h5>
+            <p class="card-text">Created by: {{ cardset.author.first_name }} {{ cardset.author.last_name }}</p>
             <p class="card-text">{{ cardset.date_created }}</p>
           
           <a href="{% url 'quiz:cardset-detail-public' cardset.pk %}" class="btn btn-info mb-2 mt-5">
-            <i class="fa fa-eye"></i> Take a Quiz
+            <i class="fa fa-graduation-cap"></i> Get Started
           </a>
         </div>
       </div>
       {% empty %}
-        <div>No cardsets yet.</div>
+        <div>No card sets yet. Go ahead and create one!</div>
       </div>
     {% endfor %}
 {% endblock content %}

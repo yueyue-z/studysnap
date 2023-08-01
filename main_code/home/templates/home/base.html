@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Flashcards</title>
+    <title>StudySnap</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
@@ -11,8 +11,8 @@
     <header>
         <nav class="navbar-custom">
             <div>
-                <a class="logo" href="{% url 'home:home' %}"><span class="logo">Quiz Master</span></a>
-                <a href="{% url 'quiz:quiz-home' %}"><button>Take a Quiz</button></a>
+                <a class="logo" href="{% url 'home:home' %}"><span class="logo">StudySnap</span></a>
+                <a href="{% url 'quiz:quiz-home' %}"><button>Flashcards</button></a>
             </div>
             <div>
                 {% if request.user.is_authenticated %}
