@@ -5,7 +5,7 @@
     {% for cardset in cardsets %}
         <li><a href="{% url 'cards:cardset-detail' pk=cardset.pk %}">{{ cardset.name }}</a></li>
     {% empty %}
-        <li>No cardsets available.</li>
+        <li>No card sets available.</li>
     {% endfor %}
 </ul>
 {% endblock %}
