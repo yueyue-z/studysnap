@@ -5,7 +5,8 @@ StudySnap is a comprehensive, user-friendly, machine learning-powered flashcard 
 ## Authors
 
 - **PM**: Yueyue Zhu
-- **Backend**: Ayush Dixit, Jean Paul Azopardi
+- **Backend**: Ayush Dixit
+- **Backend & Algorithm**:Jean Paul Azopardi
 - **Frontend**: Sujith Emmanuel Battu
 - **Testing**: Jennifer Monti
 - **Usability**: Wei Wang
