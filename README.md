@@ -10,14 +10,17 @@ StudySnap is a comprehensive, user-friendly, machine learning-powered flashcard 
 - **Testing**: Jennifer Monti
 - **Usability**: Wei Wang
 
-
 ## Usage
 
-After opening the main website, users can:
-1. **Without Logging In**: Click 'Flashcard' to view card sets, search card sets and study.
-2. **Sign Up / Log In**: View card sets, study, create, edit, delete card sets, add cards into card sets, and see their own dashboards for all card sets belonging to them.
+### For Learners (Visitors):
+- **Explore**: Click 'Flashcard' to view and search card sets, and study without needing to log in.
 
-When in study mode, the cards are shown in a smart sequence that most effectively helps to learn and memorize. The detail is listed in the algorithm section below.
+### For Creators (Registered Users):
+- **Study**: Click 'Flashcard' to view and search card sets, and study.
+- **Creating**: View, create, edit and delete card sets; View, add, edit and delete cards.
+- **Dashboard**: Monitor all your card sets and learning progress.
+
+In study mode, the cards are intelligently ordered to enhance learning and retention. More details can be found in the algorithm section below.
 
 ## Tools
 
@@ -27,11 +30,15 @@ When in study mode, the cards are shown in a smart sequence that most effectivel
 
 ## Algorithm
 
-We use a bank of software engineering class questions for training and used machine learning models to predict the difficulty level (easy, medium, and difficult) of each question. In detail, a group of prior users took the questions and compared their answers to the correct answer to label the difficulty level of each question. For example, if all prior users answered correctly, it is marked as easy, vice versa.
+StudySnap’s machine learning algorithm categorizes questions into three difficulty levels: easy, medium, and difficult. This classification is based on the following:
 
-The training took into account relevant features including question length, answer length, author, etc. After determining the difficulty, we used an effective learning sequence to show the cards to learners, starting from easy and then progressing to medium/difficult (shuffled). This rationale is based on the pedagogical principle that a gradual increase in complexity aids in retention and understanding, following the natural progression of learning.
+1. **Training Data**: A collection of software engineering questions answered by prior users, compared with the correct answers to label difficulty.
+2. **Features**: Consideration of question length, answer length, author, and other relevant aspects.
+3. **Classification**: If all prior users answered correctly, the question is marked as easy, and so forth.
+
+After classifying difficulty, the system utilizes an optimal learning sequence, starting with easy questions and gradually progressing to medium and difficult ones. This strategy follows a pedagogical approach where a gradual increase in challenge aligns with the natural learning curve, aiding comprehension and memory retention.
 
 ## Feedback
 
-For feedback, suggestions, or any questions, please contact Team 4 group members.
+For feedback, inquiries, or collaboration, please contact the project team members.
 
