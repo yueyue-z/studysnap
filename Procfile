@@ -1,1 +1,1 @@
-web: gunicorn quizmaster.wsgi
+web: gunicorn flashcard_app.wsgi
