@@ -1,1 +1,1 @@
-web gunicorn studysnap.wsgi
+web: gunicorn studysnap.wsgi
