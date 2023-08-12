@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,400&display=swap');
+/* Reset some default styles in the browser */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh; background: linear-gradient(45deg, #e5f2f9, #e7e3ff);
+}
+
+/* Add a class to the body to avoid styling conflicts */
+body.landing-page {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://cdn.dribbble.com/userupload/4094964/file/original-6466429eea29e834a337a3c7fb6f6fb9.jpg?compress=1&resize=1600x1200');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Style the .navbar-custom naigation bar */
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a9cff;
+    background-image: linear-gradient(107deg, #3a9cff 0%, #843ef7 100%);
+    
+    padding: 10px 20px;
+}
+
+.navbar-custom img {
+    height: 40px;
+}
+
+.navbar-custom span {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.navbar-custom button {
+    background-color: white;
+    border: none;
+    color: #843ef7;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* Style the container */
+.landing-page .container {
+    text-align: center;
+    padding: 40px;
+}
+
+.landing-page .container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: #843ef7;
+    font-weight: bold;
+}
+
+.landing-page .container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+span.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+a.logo {
+    text-decoration: none;
+}
+
+/* Style for the centered white box */
+.content-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.signup-container {
+    display: flex;
+}
+
+.form-side {
+    flex: 1;
+    padding: 40px;
+}
+
+.graphic-side {
+    flex: 1;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.signup-page {
+    height: 100vh;
+}
+
+.form-side {
+    padding-top: 20px;
+}
+
+.form-side h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.form-side input {
+    width: 100%;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-side button {
+    background: #843ef7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;  /* make sure it is not set to none */
+    overflow: visible;  /* make sure the button is not being hidden due to overflow */
+}
+.form-error {
+    color: red;
+}
+
+.dashboard-nav {
+    grid-column: 1/-1;
+}
+
+.flashcard-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.flashcard h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flashcard p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.question-card {
+    background: #843ef7;
+    color: white;
+    padding: 40px 50px;
+}
+
+.question-card input[type=submit] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.flashcard-page {
+    background: #f4f4f4;
+}
+
+.question-card {
+    margin-top: 30px;
+}
+
+.question-card p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.question-card .question-no {
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.quiz-metadata h3 {
+    font-weight: bold;
+}
+
+.quiz-metadata h5 {
+    opacity: 0.7;
+}
+
+.dashboard-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.dashboard-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-container ul {
+    list-style: none;
+    padding:0;
+}
+
+.dashboard-container button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.create-new-quiz-set {
+    background: #843ef7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recently-added {
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+/* Css for the dashboard page */
+#dashboard {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+
+#dashboard h2 {
+    color: #343a40;
+}
+
+#dashboard .dashboard-list {
+    list-style: none;
+    padding: 0;
+}
+
+#dashboard .dashboard-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.dashboard-btn,.dashboard-edit {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.dashboard-btn:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.dashboard-edit:hover{
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.dashboard-delete {
+    display: inline; /* To display 'Edit' link and 'Delete' button in the same line */
+}
+
+.dashboard-delete input[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #843ef7;
+    border-color: #843ef7;
+}
+
+.btn-info {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.card p {
+    background-color: white;
+}
+
+.question-card p {
+    background-color: unset;
+}
+
+.form-style label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.flip-container {
+    perspective: 1000;
+    float: left;
+    cursor: pointer;
+    /*  &:hover{
+      .flippable {
+        transform: rotateY(180deg);
+      }
+    }*/
+  }
+  .flip-container .flippable {
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .flip-container .flipme {
+    transform: rotateY(180deg);
+  }
+  .flip-container,
+  .front,
+  .back {
+    width: 100%;
+    min-height: 100px;
+    line-height: 100px;
+    font-size: 40px;
+    border-radius: 5px;
+  }
+  .front,
+  .back {
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+  .front {
+    z-index: 2;
+  }
+  .front span {
+    font-size: 20px;
+    position: absolute;
+    top: -30px;
+    left: 10px;
+  }
+  .back {
+    transform: rotateY(180deg);
+    font-size: 18px;
+  }
+
+  .back {
+    display: none;
+  }
+
+  .flipme .back {
+    display: block;
+  }
+
+  .flipme .front {
+    display: none;
+  }
+
+  .ac-question .front {
+    background: #843ef7;
+  }
+  .ac-question .back {
+    background: #843ef7;
+  }
+
+  .click-to-reveal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium!important;
+    opacity: 0.7;
+    font-weight: 300;
+    margin-top: -10px;
+    margin-bottom: -25px;
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    width: 10%!important;
+  }
