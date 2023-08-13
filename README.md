@@ -2,6 +2,8 @@
 
 StudySnap is a comprehensive, user-friendly, machine learning-powered flashcard website. Although focusing on software engineering study, it allows users to freely create flashcard sets for any subject.
 
+Web link: https://studysnap-17c1fd4618f5.herokuapp.com/
+
 ## Authors
 
 - **PM**: Yueyue Zhu
