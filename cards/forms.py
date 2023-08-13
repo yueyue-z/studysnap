@@ -4,10 +4,6 @@ from django import forms
 from .models import CardSet
 
 
-# class CardCheckForm(forms.Form):
-#     card_id = forms.IntegerField(required=True)
-#     solved = forms.BooleanField(required=False)
-
 
 class CardSetForm(forms.ModelForm):
     class Meta:  #metadata about the model

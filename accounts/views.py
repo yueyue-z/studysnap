@@ -1,20 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from . import forms
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-# def register_view(request):
-#     form = forms.CustomUserCreationForm(request.POST or None)
-#     if form.is_valid():
-#         user_obj = form.save()
-#         if not User.objects.filter(email=user_obj.email).exists():
-#             return redirect('accounts:login')
-#         else:
-#             return messages.error(request, "This email already exists. Please login or reset password.")  
-#     context = {"form": form}
-#     return render(request, "accounts/register.html", context)
+# register, login and logout views
 
 def register_view(request):
     form = forms.CustomUserCreationForm(request.POST or None)
@@ -33,8 +24,6 @@ def register_view(request):
     return render(request, "accounts/register.html", context)
 
 
-
-# Create your views here.
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)

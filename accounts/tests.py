@@ -1,6 +1,7 @@
 from django.test import TestCase
 from accounts.forms import CustomUserCreationForm
 
+# Unit Test Cases for user create 
 
 class CustomerUserCreationTestCase(TestCase):
     def test_valid_form(self):

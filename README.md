@@ -28,8 +28,8 @@ In study mode, the cards are intelligently ordered to enhance learning and reten
 ## Tools
 
 - **Backend**: Django
-- **Frontend**: HTML
-- **Database**: PostgreSQL
+- **Frontend**: HTML, CSS
+- **Database**: PostgreSQL, AWS RDS
 
 ## Algorithm
 

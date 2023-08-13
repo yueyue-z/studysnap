@@ -9,6 +9,7 @@ from .forms import CardSetForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
+# decorator to make sure user is logged in 
 @login_required
 def CardSetCreateView(request):
     submitted = False
@@ -85,8 +86,6 @@ class DashboardView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # Filter the CardSet model by the current user
         return CardSet.objects.filter(author_id=self.request.user.id)
-
-
 
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):
